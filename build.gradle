@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.10'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation "com.github.jasync-sql:jasync-r2dbc-mysql:2.1.23"
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
